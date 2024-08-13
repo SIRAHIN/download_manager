@@ -61,7 +61,6 @@ Future<bool> downloadFile(String url) async {
   final prefs = await SharedPreferences.getInstance();
   final existingFiles = prefs.getStringList('files') ?? [];
 
-  // Use Obx or GetX for better state management
   downloadedSaveFiles.value = existingFiles.map((file) {
     final parts = file.split(':');
     return FileModel(url: parts[0], fileName: parts[1]);
