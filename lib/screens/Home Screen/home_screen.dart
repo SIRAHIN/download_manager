@@ -42,18 +42,18 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Obx(
-                  () => 
+                  () => fileController.isDownloadStart.value == true ?
                   Column(
                     children: [
                       Container(
                        height: 15,
-                       width: fileController.downloadProgress.value * 4,
+                       width: fileController.downloadProgress.value,
                        color: Colors.red,
                       ),
-                      Text("${fileController.downloadProgress}%")
+                      Text("${fileController.downloadProgress.toInt()}%")
                     ],
                   )
-                ),
+                : Container() ),  
                 const SizedBox(height: 20),
                 SizedBox(
                   width: 170,
@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                         if (isDownloaded) {
                           Get.snackbar(
                               'Congratulations ', 'File Downlaod Successflly');
-                          fileController.downloadProgress.value = 0;
+                          fileController.downloadProgress.value = 0.0;
                           urlController.clear();
                         }
                       } else {
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
             )),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(
+        child: const Icon(
           Icons.download_rounded,
           size: 32,
           color: Colors.black,

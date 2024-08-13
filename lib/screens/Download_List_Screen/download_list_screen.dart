@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DownloadListScreen extends StatefulWidget {
-  DownloadListScreen({super.key});
+  const DownloadListScreen({super.key});
 
   @override
   State<DownloadListScreen> createState() => _DownloadListScreenState();
