@@ -32,18 +32,21 @@ class _DownloadListScreenState extends State<DownloadListScreen> {
                   itemCount: fileController.downloadedSaveFiles.length,
                   itemBuilder: (context, index) {
                     final file = fileController.downloadedSaveFiles[index];
+                 
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
                         child: ListTile(
+                         onTap: () async {
+                           await fileController.openDownlaodFile(file.filePath, file.url);
+                         },
                           leading: CircleAvatar(
                             child: Text('${index + 1}'),
                           ),
-                          title: Text(
-                            file.fileName.substring(2),
+                          title: Text("File Name: ${file.fileName}",
                             overflow: TextOverflow.ellipsis,
                           ),
-                          // subtitle: Text(file.url),
+                           subtitle: Text("File Url: ${file.url}", overflow: TextOverflow.ellipsis,),
                         ),
                       ),
                     );
