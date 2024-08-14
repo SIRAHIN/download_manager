@@ -1,4 +1,5 @@
 import 'package:downlaod_manager/routes/route_name.dart';
+import 'package:downlaod_manager/service/db_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -7,7 +8,11 @@ import 'routes/route_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); 
+  // Get Storage Permission From User //
   await requestPermissions();
+
+  // Await for generate the Sqflite DataBase //
+  await DataBaseHelper().getDatabaseOpen();
   runApp(const MyApp());
 }
 
