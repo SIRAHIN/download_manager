@@ -66,7 +66,7 @@ class DataBaseHelper {
           fileName: element[dbTableFileNameColumnName] as String,
           filePath: element[dbTableFilePathColumnName] as String));
     }
-    // retur the list data for future call //
+    // return the list data for future call //
     return Get.find<FileController>().downloadedSaveFiles;
   }
 }
