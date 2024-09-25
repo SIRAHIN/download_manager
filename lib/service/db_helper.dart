@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:downlaod_manager/model/file_model.dart';
 import 'package:downlaod_manager/screens/Home%20Screen/Controller/file_controller.dart';
@@ -66,7 +65,7 @@ class DataBaseHelper {
           fileName: element[dbTableFileNameColumnName] as String,
           filePath: element[dbTableFilePathColumnName] as String));
     }
-    // retur the list data for future call //
+    // return the list data for future call //
     return Get.find<FileController>().downloadedSaveFiles;
   }
 }
